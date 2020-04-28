@@ -1,32 +1,22 @@
-/**
- * This program changes the case of every character given a string as parameter.
- *
- * Example: Given "Hello WoRld" -> "hELLO wOrLD"
- *
- * @author Florian Dahlitz
-*/
-#include <stdio.h>
-#include <stdlib.h>
+# Small C Test
+## Description
+This image contains smaller c-programs, which can be executed.<br>
+It was created to learn the general commands of Docker and to examine,<br>
+how to use C inside Docker wihtout needing the complete gcc image.
 
-int main(int argc, char **argv)
-{
-    if(argc != 2) {
-        printf("The case changer requires one argument.\n");
 
-        return EXIT_SUCCESS;
-    }
+## Installation
+You can get the image via Docker Hub. Simply run
 
-    char *string = argv[1];
+```docker pull floriandahlitz/small_c_test```
 
-    for(char *character = string; *character != '\0'; character++)
-    {
-        *character = *character ^ 32;
-        if(*(character+1) == ' ')
-            character++;
-    }
+## Available Commands
+The following command will run a comparison between two sorting algorithms:
 
-    printf("%s\n", string);
-    printf("----------------------------\n");
+```docker run --rm floriandahlitz/small_c_test --comparison```
 
-    return EXIT_SUCCESS;
-}
+To use the case-changer run the following command with a string argument:
+
+```docker run --rm floriandahlitz/small_c_test --case-changer "Test String"```
+
+If you run the image without any further argument, it will execute the default hello-program written in C.
